@@ -2,32 +2,118 @@
 <head>
 <title>NEWHireRegistry</title>
 </head>
-<body bgcolor="#FFA07A">
-<form name="newhire" method="get">
-<h2 align="center">New Hire Registry</h2>
-<center>First Name : <input type="text" placeholder="First Name"><br><br>
-Last Name : <input type="text" placeholder="Last Name"><br><br>
-Gender : <input type="radio" name="gender" value="m"> Male  
-		 <input type="radio" name="gender" value="f"> Female  
-		 <br><br>
+<body>
+<fieldset style="width: 500px; position: absolute; border: 1px solid gray; text-align: left; padding: 40px; background-color:#999999">
+<form name="newhire" method="get" autocomplete="off" onsubmit="return submitForm()">
+<h2 align=center> New Hire Registry</h2>
+
+<center>First Name : <input type="text" placeholder="First Name"  size="25" maxlength="10" pattern="[A-Z]{1}[a-zA-Z}+"><br><br>
+Last Name : <input type="text" placeholder="Last Name" minlength="3"><br><br>
+
+Password: <input type="password" pattern="[A-Z]{1}[a-zA-Z0-9*#$%]{7}"><br><br>
+
+
+Gender : <input type="radio" name="gender"  value="m"> Male  
+		 <input type="radio" name="gender"  value="f"> Female  
+		 <input type="radio" name="gender"  value="o"> Other
+		 
+		 <span id="errorGender"> </span> 
+		 <br><br> 
+		 
+Date of Birth : <input type="date"> <br><br>
+Email ID : <input type="email" placeholder="abc@gmail.com" pattern="[A-Za-z0-9_.]+[@]{1}[A-Za-z]+(.com/.co.in)"><br><br>
+Mobile Number:<input type="text" placeholder="Enter mobile number" maxlength="10" pattern="[6-9]{1}[0-9]{9}"><br><br>
+Favourite Color : <input type="color" size="25"><br><br>
+Time : <input type="time" placeholder="Enter number"><br><br>
+Date time : <input type="datetime-local"><br><br>
+Favourite Number : 	<input type="number" min="0" max="5"><br><br>	 Upload CV : <input type="file"><br><br>
+		 
 Languages Known : <input type="checkbox" name="lang1" value="eng" checked>English 
 					<input type="checkbox" name="lang2" value="mal">Malayalam 
 					<input type="checkbox" name="lang3" value="hindi">Hindi 
-					<input type="checkbox" name="lang4" value="tamil">Tamil  <BR>
+					<input type="checkbox" name="lang4" value="tamil">Tamil <BR> <BR>
 					
-Address : <textarea> </textarea><br><br>
-Location Preferred : <select name="location" multiple>
-						<option value="">Select...</option>
-						<option value="bgl">Bangalore</option>
-						<option value="hybd" selected>Hyderabad</option>
-						<option value="mi">Mumbai</option>
-						<option value="gur">Gurgaon</option>
-						</select><br><br>
+Address : <textarea rows="4" cols="16"> </textarea><br><br>
+Location Preferred : <select name="location">
+						<option value="select" >Select...</option>
+						<option value="bgl" class="option1">Bangalore</option>
+						<option value="hybd" class="option1">Hyderabad</option>
+						<option value="mi" class="option1">Mumbai</option>
+						<option value="gur" class="option1" >Gurgaon</option>
+						
+						</select>
+						<span id="errorLOCATION"> </span> 
+		<br><br>
+
 <input type="submit"><br><br>
 <input type="reset"><br><br>
-<input type="file"><br><br>
-</center>
 
+</center>
+</fieldset>
 </form>
+
+
+
+<script>
+function submitForm()
+{
+alert(validateRadio());
+alert(validateDrop());
+if(validateRadio() && validateDrop())
+	return true;
+	else 
+	return false;
+}
+
+function validateRadio()
+{
+
+ var elemets =document.getElementsByName("gender");
+ var count=0;
+ for(var i=0;i<elemets.length;i++)
+ {
+	 if(elemets[i].checked)
+		 count++;
+
+ }	 
+	if(count==0)
+	{
+	
+		document.getElementById("errorGender").innerHTML="Error::::Please select a gender";
+		return false;
+	}
+	else
+	{
+		document.getElementById("errorGender").innerHTML="";
+		return true;
+	}
+	
+}
+
+function validateDrop()
+{
+	var lang =document.getElementsByClassName("option1");
+	 var c=0;
+	 
+ for(var j=0;j<lang.length;j++)
+ {
+	 if(lang[j].selected)
+		 c++;
+
+ }	
+ if(c==0)
+	{
+	
+		document.getElementById("errorLOCATION").innerHTML="Error::::SELECT ONE OPTION";
+		return false;
+	}
+	else
+	{
+		document.getElementById("errorLOCATION").innerHTML="";
+		return true;
+	} 
+	
+}
+</script>
 </body>
 </html>
