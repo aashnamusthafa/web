@@ -1,0 +1,60 @@
+<html>
+<head>
+</head>
+
+<body>
+<form>
+Enter text:<input type="text" id="txt1"/>
+<br><input type="button" name="ok" value="ok" onclick="reverseCount()"/>
+<br>
+Reversed text is<input type="text" id="rev"/>
+<span id="id1"> </span><br>
+No:of vowels=<input type="text" id="vow"/>
+</form>
+
+
+<script>
+function reverseCount()
+{
+vowel_count();
+reverseInPlace();
+
+}
+
+
+function vowel_count()
+{
+var str1=document.getElementById("txt1").value;
+  var vowel_list = 'aeiouAEIOU';
+  var vcount = 0;
+  
+  for(var x = 0; x < str1.length ; x++)
+  {
+    if (vowel_list.indexOf(str1[x]) !== -1)
+    {
+      vcount += 1;
+    }
+  
+  }
+  document.getElementById("vow").value=vcount;
+}
+
+
+function reverseInPlace()
+ {
+    var count=0;
+	var str=document.getElementById("txt1").value.toLowerCase();
+	var newString="";
+	for(var i=str.length-1;i>=0;i--)
+	{
+	newString+=str.charAt(i);
+	}
+	document.getElementById("rev").value=newString;
+	
+	
+  }
+
+
+</script>
+</body>
+</html>
