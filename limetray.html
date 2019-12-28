@@ -1,0 +1,125 @@
+<html>
+<head>
+<title> LOCATION DETAILS </title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<style>
+div{border:solid; background-color:white; color:black;}
+.d-sub{width:200px;background:wheat;border-radius: 12px;color:black;font-size:12px;border:5px solid #fff;outline:none;font-weight:bolder;letter-spacing:2px;}</style>
+</head>
+<body style="background-image:url('pasta.jpg');background-repeat:no-repeat;background-attachment:fixed; background-size:cover">
+<form>
+<h1> <center><b> ENTER LOCATION DETAILS </b> </center> </h1>
+<table align="center">
+<tr>
+<td> <input type="text" class="d-sub" name="text6" placeholder="ENTER TRAIN NUMBER" id="txt6"  required />  </td> &nbsp;
+ </tr> 
+<tr>
+<td> <input type="text" class="d-sub" name="text1" placeholder="ENTER FROM LOCATION" id="txt1" oninput="funvalidation()" required />  &nbsp; &nbsp; &nbsp; <span id="errormessage" style="color:red; font-weight:bold;"> </span>
+<b>TIME :</b><input type="time" class="d-sub" required/> </td>
+</tr>
+<tr>
+<td> <input type="text" class="d-sub" name="text2" placeholder="ENTER TO LOCATION" id="txt2" oninput="funvalidation1()" required /> &nbsp; &nbsp; &nbsp; <span id="errormessage1" style="color:red; font-weight:bold;"> </span>
+<b>TIME :</b><input type="time" class="d-sub" required /> </td>
+</tr>
+<tr>
+<td><input type="text" class="d-sub" name="text3" placeholder="ENTER STOP 1" id="txt3" oninput="funvalidation2()" required/> &nbsp; 
+&nbsp; &nbsp; <span id="errormessage2" style="color:red; font-weight:bold;"> </span>
+<b>TIME :</b><input type="time" class="d-sub" required /> </td>
+</tr>
+<tr>
+<td> <input type="text" class="d-sub" name="text4" placeholder="ENTER STOP 2" id="txt4" oninput="funvalidation3()" required /> &nbsp; 
+&nbsp; &nbsp; <span id="errormessage3" style="color:red; font-weight:bold;"> </span>
+<b>TIME :</b><input type="time" class="d-sub" required/> </td>
+</tr>
+<tr>
+<td><input type="text" class="d-sub" name="text5" placeholder="ENTER STOP 3" id="txt5" oninput="funvalidation4()" required /> &nbsp; 
+&nbsp; &nbsp; <span id="errormessage4" style="color:red; font-weight:bold;"> </span>
+<b>TIME :</b><input type="time" class="d-sub" required>  </td>
+</tr>
+<tr>
+<td> <center> <input type="submit" class="d-sub" value="ADD LOCATION" style="font-size:20; color : black;" onsubmit="finalvalidation()" /> </center> </td>
+</tr>
+</table>
+<script>
+function funvalidation()
+{
+	var userval=document.getElementById("txt1").value;
+	var namePattern="^[A-Za-z]+$";
+	if(!userval.match(namePattern))
+	{
+		document.getElementById("errormessage").innerHTML="(Invalid input)";
+	}
+    else
+    {
+		document.getElementById("errormessage").innerHTML="";
+	}
+}	
+function funvalidation1()
+{
+	var userval=document.getElementById("txt2").value;
+	var namePattern="^[A-Za-z]+$";
+	if(!userval.match(namePattern))
+	{
+		document.getElementById("errormessage1").innerHTML="(Invalid input)";
+	}
+    else
+    {
+		document.getElementById("errormessage1").innerHTML="";
+	}
+}
+function funvalidation2()
+{
+	var userval=document.getElementById("txt3").value;
+	var namePattern="^[A-Za-z]+$";
+	if(!userval.match(namePattern))
+	{
+		document.getElementById("errormessage2").innerHTML="(Invalid input)";
+	}
+    else
+    {
+		document.getElementById("errormessage2").innerHTML="";
+	}
+}	
+function funvalidation3()
+{
+	var userval=document.getElementById("txt4").value;
+	var namePattern="^[A-Za-z]+$";
+	if(!userval.match(namePattern))
+	{
+		document.getElementById("errormessage3").innerHTML="(Invalid input)";
+	}
+    else
+    {
+		document.getElementById("errormessage3").innerHTML="";
+	}
+}	
+function funvalidation4()
+{
+	var userval=document.getElementById("txt5").value;
+	var namePattern="^[A-Za-z]+$";
+	if(!userval.match(namePattern))
+	{
+		document.getElementById("errormessage4").innerHTML="(Invalid input)";
+	}
+    else
+    {
+		document.getElementById("errormessage4").innerHTML="";
+	}
+}	
+function finalvalidation()
+{
+	var x=funvalidation();
+	var y=funvalidation1();
+	var z=funvalidation2();
+	var h=funvalidation3();
+	var r=funvalidation4();
+	if(x && y && z && h && r)
+	return true;
+	else
+	return false;
+	
+}		
+	
+</script>
+</body>
+</html>
